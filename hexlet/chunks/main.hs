@@ -17,3 +17,4 @@ main = do
     print $ chunk ["a", "b", "c", "d"] 3        -- [["a","b","c"],["d"]]
     print $ chunk ["a", "b", "c", "d", "e"] 2   -- [["a","b"],["c","d"],["e"]]
     
+-- [a, b, c, d, e] 2 -> 3 => len $ xs / n
