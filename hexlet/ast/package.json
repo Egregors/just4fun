@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "jest": "^24.8.0",
+    "lodash": "^4.17.11"
+  },
+  "scripts": {
+    "test": "jest --colors"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "bail": true
+  }
+}
