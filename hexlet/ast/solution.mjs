@@ -1,18 +1,14 @@
 const singleTagsList = new Set(["hr", "img", "br"]);
 
 // test data
-// const data = ['html', [
-//   ['head', [
-//     ['title', 'hello, hexlet!'],
-//   ]],
-//   ['body', { class: 'container' }, [
-//     ['h1', { class: 'header' }, 'html builder example'],
-//     ['div', [
-//       ['span', 'span text2'],
-//       ['br'],
-//     ]],
-//   ]],
-// ]];
+const data = ['html', [
+  ['meta', { id: 'uniq-key' }, [
+    ['title', 'hello, hexlet!'],
+  ]],
+  ['body', [
+    ['br'],
+  ]],
+]];
 
 const parse = arr => {
   const [name, ...attrs] = arr;
@@ -57,8 +53,8 @@ const render = n => {
 };
 
 // main
-// const ast_data = parse(data);
-// console.log(ast_data);
-// console.log("\n");
-// const html = render(ast_data);
-// console.log(html);
+const ast_data = parse(data);
+console.log(ast_data);
+console.log("\n");
+const html = render(ast_data);
+console.log(html);

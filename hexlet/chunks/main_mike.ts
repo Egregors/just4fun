@@ -17,6 +17,6 @@ export function chunks(arr: Data[], chunkSize: number): Chunks {
     return chunkList;
 }
 
-console.log(chunks([1, 2, 3, 4, 5, 6, 7], 3));
+console.log(chunks([1, 2, 3, 4, 5, 6, 7], 99));
 
-// [1, 2, 3, 4, 5] 2 -> 5 => len(arr) 
+// [1, 2, 3, 4, 5] 0 -> 5 => len(arr) 

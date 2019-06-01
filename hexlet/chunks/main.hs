@@ -1,13 +1,16 @@
 module Main where
 
+-- your f here
 chunk :: [String] -> Int -> [[String]]
 chunk [] _ = []
 chunk xs 0 = [xs]
-chunk xs n 
+chunk xs n
     | length xs <= n = [xs]
-    | otherwise = take n xs: chunk tail' n
+    | otherwise = take n xs : chunk tail' n
     where 
         tail' = drop n xs
+
+-- end
 
 main = do
     print $ chunk [] 3                          -- []
