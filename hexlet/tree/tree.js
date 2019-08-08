@@ -28,6 +28,7 @@ class Tree {
     // BEGIN (write your solution here)
     hasChildren() {
         return !!this.children.size;
+        
     }
 
     hasChild(key) {
