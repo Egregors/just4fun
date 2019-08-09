@@ -1,14 +1,19 @@
 {
     "scripts": {
-        "test": "jest --colors"
+        "test": "jest --colors",
+        "build": "NODE_ENV=production babel diff.js --out-dir dist --source-maps inline"
     },
     "jest": {
         "testEnvironment": "node"
     },
     "devDependencies": {
-        "@babel/core": "^7.4.5",
+        "@babel/cli": "^7.5.5",
+        "@babel/core": "^7.5.5",
         "@babel/preset-env": "^7.4.5",
         "babel-jest": "^24.8.0",
         "jest": "^24.8.0"
+    },
+    "dependencies": {
+        "lodash": "^4.17.15"
     }
 }
