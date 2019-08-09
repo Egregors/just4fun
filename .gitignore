@@ -5,5 +5,5 @@ main
 **/node_modules
 *.log
 
-# hexlet/diff/dist/*
+hexlet/diff/dist/*
 hexlet/diff/yarn.lock
