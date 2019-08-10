@@ -6,3 +6,4 @@ main
 *.log
 
 hexlet/diff/dist/*
+**/*.lock
