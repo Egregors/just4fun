@@ -1,7 +1,7 @@
 {
     "scripts": {
         "test": "jest --colors",
-        "build": "NODE_ENV=production babel diff.js --out-dir dist --source-maps inline"
+        "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline"
     },
     "jest": {
         "testEnvironment": "node"

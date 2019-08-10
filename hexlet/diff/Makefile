@@ -6,4 +6,4 @@ build:
 	yarn build
 
 run:
-	node dist/diff.js
+	node dist/index.js
