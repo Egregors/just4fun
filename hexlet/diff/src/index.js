@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { getKeys, diffToObj, isObject } from "./utils";
+import { getKeys, convertNodesToDiffObj, isObject } from "./utils";
 
 //  cases
 //  =====
@@ -8,8 +8,6 @@ import { getKeys, diffToObj, isObject } from "./utils";
 //                    + k: v2
 //  k: v -> -      =  - k: v    – removed
 //  -    -> k: v   =  + k: v    – added
-
-//  todo:
 //  k[v] -> k: [v] =  inline    – inline
 const dispatcher = [
     {
@@ -51,7 +49,9 @@ const getDiff = (before, after) => {
     });
 };
 
-export default (a, b) => diffToObj(getDiff(a, b));
+export default (a, b) => convertNodesToDiffObj(getDiff(a, b));
+
+// playground
 
 // const a = {
 //     timeout: {
