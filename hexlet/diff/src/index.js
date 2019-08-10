@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { getKeys, diffToObj } from "./utils";
+import { getKeys, diffToObj, isObject } from "./utils";
 
 //  cases
 //  =====
@@ -28,15 +28,16 @@ const dispatcher = [
         apply: (before, after) => ({ oldVal: before })
     },
     {
+        type: "inline",
+        check: (k, before, after) => isObject(before[k]) && isObject(after[k]),
+        apply: (before, after, genDiff) => ({
+            children: genDiff(before, after)
+        })
+    },
+    {
         type: "updated",
         check: (k, before, after) => before[k] !== after[k],
         apply: (before, after) => ({ val: after, oldVal: before })
-    },
-    {
-        // todo:
-        type: "inline",
-        check: () => false,
-        apply: () => {}
     }
 ];
 
@@ -46,27 +47,32 @@ const getDiff = (before, after) => {
         const { type, apply } = _.find(dispatcher, e =>
             e.check(k, before, after)
         );
-        return { k, type, ...apply(before[k], after[k]) };
+        return { k, type, ...apply(before[k], after[k], getDiff) };
     });
 };
 
 export default (a, b) => diffToObj(getDiff(a, b));
 
 // const a = {
-//     timeout: 20,
+//     timeout: {
+//         c: 1488
+//     },
 //     verbose: true,
 //     host: "hexlet.io"
 // };
 
 // const b = {
 //     host: "hexlet.io",
-//     timeout: 50,
+//     timeout: {
+//         a: 20,
+//         b: 49
+//     },
 //     proxy: "123.234.53.22",
 //     follow: false
 // };
 
 // const r = getDiff(a, b);
-// console.log('diff:');
+// console.log("diff:");
 // console.log(r);
 
 // const sRes = diffToObj(r);

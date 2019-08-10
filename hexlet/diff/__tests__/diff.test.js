@@ -28,7 +28,7 @@ test("getDiff for file", () => {
     const before = {
         common: {
             setting1: "Value 1",
-            setting2: "200",
+            setting2: 200,
             setting3: true,
             setting6: {
                 key: "value"
@@ -42,7 +42,7 @@ test("getDiff for file", () => {
             }
         },
         group2: {
-            abc: "12345"
+            abc: 12345
         }
     };
     const after = {
@@ -69,7 +69,7 @@ test("getDiff for file", () => {
         },
 
         group3: {
-            fee: "100500"
+            fee: 100500
         }
     };
     const diff = {

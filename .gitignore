@@ -6,4 +6,5 @@ main
 *.log
 
 hexlet/diff/dist/*
+**/yarn.lock
 hexlet/diff/yarn.lock

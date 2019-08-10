@@ -6,6 +6,8 @@ export const getKeys = (...objects) => {
     ];
 };
 
+export const isObject = obj => typeof obj === "object";
+
 export const diffToObj = diff => {
     const actions = {
         equal: (acc, { k, val }) => ({ ...acc, [`${k}`]: val }),
@@ -15,8 +17,11 @@ export const diffToObj = diff => {
             ...acc,
             [`- ${k}`]: oldVal,
             [`+ ${k}`]: val
+        }),
+        inline: (acc, { k, children }) => ({
+            ...acc,
+            [`${k}`]: diffToObj(children)
         })
-        // todo: add inline
     };
 
     return diff.reduce((acc, el) => actions[el.type](acc, el), {});
